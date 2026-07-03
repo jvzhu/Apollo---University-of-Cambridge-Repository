@@ -122,7 +122,7 @@ Related issue: [Collect data from sources (#1)](https://github.com/jvzhu/Apollo-
 - **Year:** Ongoing
 - **URL:** https://www.openaccess.cam.ac.uk/
 - **DOI:** N/A
-- **Raw data access:** N/A
+- **Raw data access:** N/A (guidance web pages; no API or bulk data)
 - **License/usage:** Public guidance pages; consult individual policy documents for reuse terms
 
 ---
