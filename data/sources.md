@@ -108,10 +108,11 @@ Related issue: [Collect data from sources (#1)](https://github.com/jvzhu/Apollo-
 ### 3.1 DSpace Platform (Apollo's underlying software)
 
 - **Title:** "DSpace: An Open Source Dynamic Digital Repository"
-- **Author:** MacKenzie Smith et al.
+- **Author/Publisher:** MacKenzie Smith et al.
 - **Year:** 2003
 - **URL:** http://www.dlib.org/dlib/january03/smith/01smith.html
 - **DOI:** https://doi.org/10.1045/january2003-smith
+- **Raw data access:** N/A (reference article)
 - **License/usage:** D-Lib Magazine article, freely accessible; DSpace software is BSD-licensed (https://github.com/DSpace/DSpace)
 
 ### 3.2 Open Access at Cambridge
