@@ -1,0 +1,123 @@
+name: Setup Project Board
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-board:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Data Gathering board and add issues
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const boardTitle = 'Data Gathering';
+            const columns = ['Backlog', 'In Progress', 'Review', 'Done'];
+
+            // Find an existing 'Data Gathering' project or create it
+            const ownerQuery = await github.graphql(`
+              query($login: String!) {
+                user(login: $login) {
+                  id
+                  projectsV2(first: 100) {
+                    nodes { id title number }
+                  }
+                }
+              }
+            `, { login: owner });
+
+            const ownerId = ownerQuery.user.id;
+            let project = ownerQuery.user.projectsV2.nodes.find(p => p.title === boardTitle);
+
+            if (project) {
+              console.log(`✓ Found existing project '${boardTitle}' (#${project.number})`);
+            } else {
+              const created = await github.graphql(`
+                mutation($ownerId: ID!, $title: String!) {
+                  createProjectV2(input: { ownerId: $ownerId, title: $title }) {
+                    projectV2 { id title number }
+                  }
+                }
+              `, { ownerId, title: boardTitle });
+              project = created.createProjectV2.projectV2;
+              console.log(`✓ Created project '${boardTitle}' (#${project.number})`);
+            }
+
+            // Configure the Status field with the board columns
+            const fieldQuery = await github.graphql(`
+              query($projectId: ID!) {
+                node(id: $projectId) {
+                  ... on ProjectV2 {
+                    field(name: "Status") {
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        options { id name }
+                      }
+                    }
+                  }
+                }
+              }
+            `, { projectId: project.id });
+
+            const statusField = fieldQuery.node.field;
+            const existingNames = statusField.options.map(o => o.name);
+            const hasAllColumns = columns.every(c => existingNames.includes(c));
+
+            if (hasAllColumns) {
+              console.log(`✓ Status field already has columns: ${columns.join(', ')}`);
+            } else {
+              const colors = { 'Backlog': 'GRAY', 'In Progress': 'YELLOW', 'Review': 'BLUE', 'Done': 'GREEN' };
+              const descriptions = {
+                'Backlog': 'New issues ready for work',
+                'In Progress': 'Currently being worked on',
+                'Review': 'Awaiting review or feedback',
+                'Done': 'Completed and merged'
+              };
+              await github.graphql(`
+                mutation($fieldId: ID!, $options: [ProjectV2SingleSelectFieldOptionInput!]) {
+                  updateProjectV2Field(input: {
+                    fieldId: $fieldId,
+                    singleSelectOptions: $options
+                  }) {
+                    projectV2Field {
+                      ... on ProjectV2SingleSelectField { id }
+                    }
+                  }
+                }
+              `, {
+                fieldId: statusField.id,
+                options: columns.map(name => ({
+                  name,
+                  color: colors[name],
+                  description: descriptions[name]
+                }))
+              });
+              console.log(`✓ Set Status columns: ${columns.join(', ')}`);
+            }
+
+            // Add all existing open issues to the board
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              per_page: 100
+            });
+
+            let added = 0;
+            for (const issue of issues) {
+              if (issue.pull_request) continue;
+              await github.graphql(`
+                mutation($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                    item { id }
+                  }
+                }
+              `, { projectId: project.id, contentId: issue.node_id });
+              console.log(`✓ Added issue #${issue.number} to '${boardTitle}'`);
+              added++;
+            }
+
+            console.log(`✓ Done - ${added} issue(s) on the '${boardTitle}' board`);

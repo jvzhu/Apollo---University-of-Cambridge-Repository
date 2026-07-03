@@ -35,7 +35,15 @@ This document describes the automated workflows configured for your repositories
 - Creates releases automatically
 - Updates documentation on release
 
-### 6. Documentation Updates
+### 6. Project Board Setup
+**File:** `setup-project-board.yml`
+- Creates the **Data Gathering** project board (if it doesn't already exist)
+- Configures the Status columns: Backlog, In Progress, Review, Done
+- Adds all existing open issues to the board
+- Triggered manually from the **Actions** tab (workflow_dispatch)
+- Requires a `PROJECT_TOKEN` repository secret: a personal access token with the `project` scope (the default `GITHUB_TOKEN` cannot create user-owned projects)
+
+### 7. Documentation Updates
 **File:** `docs-update.yml`
 - Keeps README.md current
 - Updates PROJECT_MANAGEMENT.md with metrics
