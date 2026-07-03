@@ -14,6 +14,13 @@ This document outlines the project management workflow for the Apollo Repository
 3. **Review** - Awaiting review or feedback
 4. **Done** - Completed and merged
 
+#### Board Setup
+The board can be created (or re-synced) automatically by running the
+**Setup Project Board** workflow (`.github/workflows/setup-project-board.yml`)
+from the **Actions** tab. It creates the board, configures the columns above,
+and adds all existing open issues. It requires a `PROJECT_TOKEN` repository
+secret containing a personal access token with the `project` scope.
+
 ## Workflow
 
 ### Creating an Issue
