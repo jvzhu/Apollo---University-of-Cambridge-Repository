@@ -18,7 +18,7 @@ Related issue: [Collect data from sources (#1)](https://github.com/jvzhu/Apollo-
 - **Year:** 2003–present (ongoing)
 - **URL:** https://www.repository.cam.ac.uk/
 - **DOI:** Individual records are assigned DataCite DOIs with the prefix `10.17863`
-- **Raw data access:** OAI-PMH endpoint at https://www.repository.cam.ac.uk/server/oai/request ; REST API available via the DSpace 7 API
+- **Raw data access:** OAI-PMH endpoint at https://www.repository.cam.ac.uk/server/oai/request; REST API available via the DSpace 7 API
 - **License/usage:** Metadata is generally reusable (CC0 for most records); item-level content licensing varies per deposit (many items under Creative Commons licenses, some under all-rights-reserved). Check the license field on each record.
 
 ### 1.2 Cambridge University Library Catalogue (iDiscover)
