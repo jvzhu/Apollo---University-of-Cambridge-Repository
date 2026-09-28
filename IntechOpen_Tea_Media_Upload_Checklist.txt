@@ -1,39 +1,37 @@
-INTECHOPEN TEA CHAPTER — MEDIA UPLOAD CHECKLIST
+INTECHOPEN TEA CHAPTER — FINAL MEDIA UPLOAD CHECKLIST
 
-Figures & Tables ZIP
-IntechOpen_Tea_Figures_Tables.zip
+IMPORTANT: The earlier Figures & Tables ZIP is now a legacy package and does not match the current six-figure manuscript. Do not use it as the final media package without replacing its contents.
 
-Contents:
-1. Figure_1_Plant_to_Beverage_300dpi.png
-2. Figure_2_Intermedial_Tea_Culture_300dpi.png
-3. Figure_3_Five_Stage_Aestheticization_300dpi.png
-4. Table_1_Five_Stage_Model_300dpi.png
-5. Table_2_Comparative_East_Asia_300dpi.png
+FINAL MANUSCRIPT FIGURES
+1. Figure 1 — figure1.pdf (referenced as figure1.pdf in the LaTeX source)
+2. Figure 2 — TeaData/Figure_2_FAOSTAT_Tea_2000_2024.png
+3. Figure 3 — TeaData/Figure_3_TeaBioSens_Blends_Scores.png
+4. Figure 4 — figure4.pdf
+5. Figure 5 — TeaData/Figure_5_Museum_TeaBowl_Timeline.png
+6. Figure 6 — figure6.pdf
 
-All five raster assets: 1600 px wide, ~300 DPI metadata, suitable for 117 mm print width (or 78 mm with scaling). Height is below IntechOpen's 198 mm maximum when scaled to 117 mm width.
+FINAL MANUSCRIPT TABLES
+1. Table 1 — FAOSTAT tea-leaves production indicators (editable LaTeX table)
+2. Table 2 — TeaBioSens dataset structure and scoring summary (editable LaTeX table)
+3. Table 3 — Museum metadata corpus for tea bowls (editable LaTeX table)
+4. Table 4 — Comparative Material-Cultural Configurations of Tea in East Asia (editable LaTeX table)
+5. Table 5 — Five-Stage Model of Tea Aestheticization (editable LaTeX table)
 
-Suggested manuscript placement:
-Figure 1 — Section 2: Botanical Materiality and the Cultural Life of Tea
-Figure 2 — Section 4: Literary and Visual Cultures of Tea
-Table 2 — Section 7: East Asian Circulations: China, Japan, and Korea
-Figure 3 — Section 9: Toward a Material-Cultural Theory of Aestheticization
-Table 1 — Section 9: Toward a Material-Cultural Theory of Aestheticization
+VIDEO
+Video 1 — Video_1_Five_Stage_Tea_Aestheticization.mp4
+20 seconds, 1920x1080, MP4, author-created.
 
-Video ZIP
-IntechOpen_Tea_Video.zip
-Contents:
-Video_1_Five_Stage_Tea_Aestheticization.mp4
-20 seconds, 1920x1080, MP4, approximately 76 KB, author-created.
+LEGACY PACKAGE CURRENTLY IN REPOSITORY
+IntechOpen_Tea_Figures_Tables.zip currently contains only five legacy raster assets:
+- Figure_1_Plant_to_Beverage_300dpi.png
+- Figure_2_Intermedial_Tea_Culture_300dpi.png
+- Figure_3_Five_Stage_Aestheticization_300dpi.png
+- Table_1_Five_Stage_Model_300dpi.png
+- Table_2_Comparative_East_Asia_300dpi.png
+It therefore does not supply the six figure assets referenced by the final LaTeX manuscript.
 
-The chapter DOCX with the figures and editable Word tables inserted is:
-IntechOpen_Tea_Chapter_Submission_Ready_Final_with_Brown_MediaReady.docx
+SUBMISSION ACTION
+Before uploading the final manuscript, assemble a new figures/tables package containing all six figure files actually referenced above, together with any table files or source material IntechOpen requests. Keep the video ZIP separate.
 
-External candidates identified in web research (NOT bundled):
-- Furisode tea bowl, Tokyo National Museum via Wikimedia Commons — original 5351x3426 JPEG; page marks CC0 and image metadata reports 350 DPI.
-- Shosei-en Kyoto tea plantation, Camellia sinensis — original 5472x3132 JPEG; page marks CC0.
-- Sano-ido Korean tea bowl, Joseon dynasty — original 2927x2443 JPEG; page marks CC0.
-- Chinese tea utensils — original 4272x2848 JPEG; page states CC BY 2.0 (Gary Stevens), so attribution is required.
-- Pexels: Traditional Japanese Tea Ceremony in Tatami Room — free-use video candidate under the Pexels License; third-party rights for identifiable people/objects should still be considered.
-
-Rights note:
-The bundled figures, tables, and video are author-created. External candidates should be downloaded from their source pages and independently checked before inclusion in a final publisher upload.
+RIGHTS NOTE
+The manuscript captions identify the museum records as public-domain or CC0 object-level sources where applicable. The author-created figures, tables, and video should be supplied with the final submission package. Any third-party material should be checked independently for permission/attribution before upload.
